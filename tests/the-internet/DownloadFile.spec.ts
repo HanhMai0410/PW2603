@@ -17,8 +17,8 @@ test('download a file', async ({page}) => {
 });
 
 test('download multiple files', async ({page}) => {
-    await page.goto('/download');
-    const fileNames = ["doc.txt","bb.txt"];
+    await page.goto('https://the-internet.herokuapp.com/download');
+    const fileNames = ["TextDoc.txt","bb.txt"];
     
    for (const fileName of fileNames) {
         const [download] = await Promise.all([

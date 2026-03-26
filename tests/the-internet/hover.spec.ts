@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test('dropdown test', async ({ page }) => {
+test('Hover test', async ({ page }) => {
   // Go to the dropdown page
   await page.goto('https://the-internet.herokuapp.com/hovers');
 
