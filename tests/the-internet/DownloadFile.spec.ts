@@ -11,14 +11,14 @@ test('download a file', async ({page}) => {
     const suggestedFilename = download.suggestedFilename();
     expect(suggestedFilename).toBe('Jpeg_with_exif.jpeg');
     
-    const filePath = 'download/'+suggestedFilename;
+    const filePath = 'tests\\resources\\download\\' + suggestedFilename;
     await download.saveAs(filePath);
     expect(fs.existsSync(filePath)).toBeTruthy();
 });
 
 test('download multiple files', async ({page}) => {
     await page.goto('https://the-internet.herokuapp.com/download');
-    const fileNames = ["TextDoc.txt","bb.txt"];
+    const fileNames = ["aa.txt","bb.txt"];
     
    for (const fileName of fileNames) {
         const [download] = await Promise.all([
@@ -29,7 +29,7 @@ test('download multiple files', async ({page}) => {
         const suggestedFilename = download.suggestedFilename();
         expect(suggestedFilename).toBe(fileName);
         
-        const filePath = 'download/'+suggestedFilename;
+        const filePath = 'tests\\resources\\download\\'+suggestedFilename;
         await download.saveAs(filePath);
         expect(fs.existsSync(filePath)).toBeTruthy();
     }
