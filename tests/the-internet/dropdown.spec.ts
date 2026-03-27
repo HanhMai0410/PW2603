@@ -13,8 +13,6 @@ test('select single option from dropdown', async ({ page }) => {
   await expect(page.locator('#dropdown')).toHaveValue('1');
   await expect(page.locator('#dropdown > option:checked')).toHaveText('Option 1');
 
-
-  await page.locator('#dropdown').selectOption('Option 2');
   await page.locator('#dropdown').selectOption({ label: 'Option 2' });
   await expect(page.locator('#dropdown')).toHaveValue('2');
   await expect(page.locator('#dropdown > option:checked')).toHaveText('Option 2');
