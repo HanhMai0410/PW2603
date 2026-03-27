@@ -1,12 +1,14 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from './pages/login.page';
+// import { test, expect } from '@playwright/test';
+// import { LoginPage } from './pages/login.page';
 
-test('login with valid credentials', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+import {test , expect} from '../the-internet/fixture/the-internetFixture';
+
+test('login with valid credentials', async ({ loginPage}) => {
+
     //arrange
-    loginPage.goto();
+    await loginPage.goto();
     //action
-    loginPage.login('tomsmith', 'SuperSecretPassword!');
+    await loginPage.login('tomsmith', 'SuperSecretPassword!');
     //assertion
     await expect(await loginPage.getflashMessage()).toContainText('You logged into a secure area! ×');
     await expect(await loginPage.getwelcomeMessage()).toContainText('Welcome to the Secure Area. When you are done click logout below.');
@@ -24,7 +26,7 @@ test('login with invalid credentials', async ({ page }) => {
     await expect(page.getByText('Your username is invalid!')).toBeVisible();
 });
 
-/// For Normal:
+// /// For Normal:
 // test('test', async ({ page }) => {
 //   await page.goto('https://the-internet.herokuapp.com/login');
 //   await page.locator('#username').fill('tomsmith');

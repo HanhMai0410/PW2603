@@ -1,14 +1,14 @@
-import { test, expect } from '@playwright/test';
- test('get by role', async ({ page }) => {
-  await page.goto('https://the-internet.herokuapp.com/checkboxes');
-    await page.getByRole('checkbox').first().check();
-    await page.getByRole('checkbox').nth(1).check();
-    await expect(page.getByRole('checkbox').first()).toBeChecked();
-    await expect(page.getByRole('checkbox').nth(1)).toBeChecked();
+import { test, expect } from './fixture/the-internetFixture';
+ test('get by role', async ({ checkboxPage }) => {
+  await checkboxPage.goto();
+    await checkboxPage.checkbox1.check();
+    await checkboxPage.checkbox2.check();
+    await expect(checkboxPage.checkbox1).toBeChecked();
+    await expect(checkboxPage.checkbox2).toBeChecked();
 
-    expect(page.getByRole('checkbox').first()).toBeChecked();
-    await expect(page.getByRole('checkbox').nth(1)).toBeChecked();
-    expect(page.getByRole('checkbox').nth(1)).toBeChecked();
+    await expect(checkboxPage.page.getByRole('checkbox').first()).toBeChecked();
+    await expect(checkboxPage.page.getByRole('checkbox').nth(1)).toBeChecked();
+    await expect(checkboxPage.page.getByRole('checkbox').nth(1)).toBeChecked();
 
 });
 
