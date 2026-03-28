@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-export class dropdownPage {
+export class DropdownPage {
     readonly page: Page;
     readonly dropdown: Locator;
     constructor(page: Page) {

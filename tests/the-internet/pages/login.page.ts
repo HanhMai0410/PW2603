@@ -1,9 +1,11 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
+
+//facrory pattern
 export class LoginPage {
     readonly page: Page;
     readonly usernameInput: Locator;
-    readonly passwordInput: Locator
+    readonly passwordInput: Locator;
     readonly loginButton: Locator;
 
 
